@@ -1,0 +1,24 @@
+<form [formGroup]="form" *ngIf="especialidades.length > 0 && mostrarFormulario">
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label  class="label-standard required">Identificacion del asesor</label>
+  <input  type="text" class="form-control" formControlName="idAsesor">
+        </div>
+        <div class="col-md-4 form-group">
+            <label  class="label-standard required">Nombre del asesor</label>
+                <input type="text" class="form-control" formControlName="nombre">
+        </div> 
+      
+        
+        <div class="col-md-4">
+
+            <label  class="label-standard required">Especialidad del asesor</label>
+                  <select class="form-control" formControlName="especialidad" placeholder="Especialidad">
+                   <option *ngFor="let dato of especialidades" value="{{dato.idEspecialidad}}">{{dato.descripcion}}</option>
+                      
+                      
+                </select>
+        </div>
+    </div>
+    <button type="button" class="btn btn-success" (click)="guardarAsesor()">Guardar</button>
+</form>
